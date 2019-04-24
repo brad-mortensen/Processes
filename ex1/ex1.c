@@ -8,7 +8,20 @@
 
 int main(void)
 {
-    // Your code here
+  // Your code here
+  int x = 44;
+  pid_t pid = fork();
+  if (pid == 0)
+  {
+    x = 100;
+    printf("This is x in child %d\n", x);
+  }
+  else
+  {
+    x = 420;
+    printf("This is x in parent %d\n", x);
 
-    return 0;
+  }
+  printf("This is x outside %d\n", x);
+  return 0;
 }
