@@ -25,9 +25,9 @@ int main(void)
   if (pid == 0)
   {
     printf("%d from the child\n", pid);
-    int bytes_written1 = write(fd[1], msg1, strlen(msg1)+1);
-    int bytes_written2 = write(fd[1], msg2, strlen(msg2)+1);
-    int bytes_written3 = write(fd[1], msg3, strlen(msg3)+1);
+    int bytes_written1 = write(fd[1], msg1, MSGSIZE);
+    int bytes_written2 = write(fd[1], msg2, MSGSIZE);
+    int bytes_written3 = write(fd[1], msg3, MSGSIZE);
   }
   else
   {

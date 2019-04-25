@@ -20,7 +20,17 @@ and `clock_gettime()` should work just fine.
 
 int main()
 {
-    // Your code here
-    
-    return 0;
+  // Your code here
+  struct timespec start, finish;
+  clock_gettime(CLOCK_REALTIME, &start);
+  write(STDOUT_FILENO, NULL, NULL);
+  clock_gettime(CLOCK_REALTIME, &finish);
+
+  long seconds = finish.tv_sec - start.tv_sec;
+  long ns = finish.tv_nsec - start.tv_nsec;
+
+  printf("seconds without ns: %ld\n", seconds);
+  printf("nanoseconds: %ld\n", ns);
+  printf("total seconds: %e\n", (double)seconds + (double)ns / (double)BILLION);
+  return 0;
 }
