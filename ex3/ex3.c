@@ -13,12 +13,12 @@ int main(void)
   pid_t pid = fork();
   if (pid == 0)
   {
-    printf("Hello");
+    printf("Hello\n");
   }
   else
   {
     wait(NULL);
-    printf("goodbye");
+    printf("goodbye\n");
   }
 
   return 0;
