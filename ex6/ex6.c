@@ -21,9 +21,11 @@ and `clock_gettime()` should work just fine.
 int main()
 {
   // Your code here
+  int *buf[0];
+
   struct timespec start, finish;
   clock_gettime(CLOCK_REALTIME, &start);
-  write(STDOUT_FILENO, NULL, NULL);
+  write(STDOUT_FILENO, buf, sizeof buf);
   clock_gettime(CLOCK_REALTIME, &finish);
 
   long seconds = finish.tv_sec - start.tv_sec;
